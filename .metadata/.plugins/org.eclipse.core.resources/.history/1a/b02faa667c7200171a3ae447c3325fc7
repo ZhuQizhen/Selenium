@@ -1,0 +1,69 @@
+package Selenium28;
+import org.junit.Assert;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+//import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.Scanner;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+import java.util.regex.*;
+
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+//using XML file
+//
+//Tags in XML:
+//<suite name = "Suite Name">
+//	<test name = "Test Name">
+//		<classes>
+//			<class name = "package.ClassName1"/>
+//			<class name = "package.ClassName2"/>
+//		</classes>
+//	</test>
+//</suite>
+
+//-------------------
+//Create XML file
+//select java project/package
+//>right click > New
+//>Other
+//>Enter TestNG and select TestNG class
+//>Enter source and package names
+//>Enter XML file NAME
+
+//---------------------------
+//TestNG Annotations
+//@Test-  The annotated method is a part of a Test Case
+//@BeforeMethod-  The annotated method will be run before each Test method
+//@AfterMethod-  The annotated method will be run after each Test method
+//@BeforeClass-  The annotated method will be run before the first Test method in the current class
+//@AfterClass-  The annotated method will be run after the last Test method in the current class
+
+//@BeforeTest-  The annotated method will be run before any Test methods belonging to classes inside the tag is run
+//@AfterTest-  The annotated method will be run after all the Test methods belonging to classes inside the tag is run
+
+//----------------------------------
+//Group Test Cases
+//>select a package
+//>new
+//>other
+//>TestNG class
+
+//---------------------------------------
+//Pararllel Test Cases
+//
+
+public class TestNG2 {
+
+}

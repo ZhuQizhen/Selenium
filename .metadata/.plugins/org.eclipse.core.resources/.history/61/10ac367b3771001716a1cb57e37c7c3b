@@ -1,0 +1,121 @@
+package Selenium21;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+import java.util.regex.*;
+
+public class HandleElement3 {
+	public static void main(String args[])
+	{
+		m4();
+	}
+	
+	//frame
+	public static void m1()
+	{
+		WebDriver driver= new FirefoxDriver();
+		driver.get("http://seleniumhq.github.io/selenium/docs/api/java/index.html");
+	;	
+		//switch to a frame :  1)using index;  2)using frame name
+		//driver.switchTo().frame(2);
+		driver.switchTo().frame("classFrame");
+		WebElement element = driver.findElement(By.linkText("com.thoughtworks.selenium"));
+		
+		element.click();
+		
+		driver.switchTo().defaultContent();// from a frame to TopWindow
+		
+	}
+	
+	//mouse over
+	public static void m2()
+	{
+		WebDriver driver= new FirefoxDriver();
+		driver.get("http://www.baidu.com");
+		
+		WebElement tj = driver.findElement(By.name("tj_briicon"));
+		System.out.println(tj.getText());
+		
+		//WebElement nuomi = driver.findElement(By.linkText("Å´Ã×"));
+		//System.out.print(nuomi.getText());
+		// this will exption
+		
+		
+		//create Action by passing webdriver instance
+		Actions builder = new Actions(driver);
+		builder.moveToElement(tj).build().perform();  // mouse over
+		
+		WebElement nuomi = driver.findElement(By.linkText("Å´Ã×"));
+		System.out.println(nuomi.getText());
+		//this time we can find that element		
+		
+		
+		driver.close();
+	}
+
+	//multiple browsers 
+	public static void m3()
+	{
+		WebDriver driver= new FirefoxDriver();
+		driver.get("file:///C:/PHP/www/multiple.html");
+		WebElement button = driver.findElement(By.linkText("new window"));
+		button.click();
+		button.click();
+		button.click();
+		
+		
+		String parent = driver.getWindowHandle();
+		System.out.println(parent);
+
+		Set<String> Handles = driver.getWindowHandles();
+		System.out.println(Handles.size());
+		
+		for (String s1:Handles)
+		{
+			if(! s1.equals(parent))
+			{
+				driver.switchTo().window(s1);
+				String thisHandle = driver.getWindowHandle();
+				System.out.println(thisHandle);
+		
+				driver.close();
+			}
+		}
+		
+		driver.switchTo().window(parent);
+		driver.close();
+	}
+
+	//duplicate objects
+	public static void m4()
+	{
+		WebDriver driver= new FirefoxDriver();
+		driver.get("https://mail.zju.edu.cn/coremail/index.jsp");
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		WebElement username = driver.findElement(By.id("uid"));
+		WebElement password = driver.findElement(By.id("password"));
+		username.sendKeys("3120104907");
+		password.sendKeys("DDdd930605FFff");
+		WebElement loginButton = driver.findElement(By.xpath("/html/body/div[3]/div[4]/div[3]/div[2]/div[1]/form/div[3]/button"));
+		loginButton.click();
+		
+		driver.findElement(By.xpath("")).click();
+	}
+}

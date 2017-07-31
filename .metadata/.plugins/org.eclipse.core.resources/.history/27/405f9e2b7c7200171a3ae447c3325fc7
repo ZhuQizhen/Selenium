@@ -1,0 +1,7 @@
+<suite name="Suite" parallel="methods", thread-count = "">
+  <test name="Test">
+    <classes>
+      <class name="Selenium28.NewTest5"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

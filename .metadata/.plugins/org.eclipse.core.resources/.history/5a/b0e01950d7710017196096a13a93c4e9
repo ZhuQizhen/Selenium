@@ -1,0 +1,6 @@
+package Selenium25;
+
+
+public class TestCase3_2 extends TestCase3 {
+
+}

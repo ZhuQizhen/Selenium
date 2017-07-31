@@ -1,0 +1,29 @@
+package Selenium17;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+
+
+
+public class ElementLocators {
+	public static void main(String[] args){
+		m1();
+	}
+	
+	public static void m1(){
+		WebDriver driver= new FirefoxDriver();
+		driver.get("https://www.google.co.jp/");
+		driver.findElement(By.id("gs_htif0")).sendKeys("Cn");	
+		driver.close();
+	}
+	
+	public static void m2(){
+		WebDriver driver= new FirefoxDriver();
+		driver.get("https://www.google.co.jp/");
+		WebElement searchText = driver.findElement(By.id("gs_htif0"));
+		searchText.sendKeys("Cn");
+		searchText.clear();// InvalidElementStateException
+	}
+}

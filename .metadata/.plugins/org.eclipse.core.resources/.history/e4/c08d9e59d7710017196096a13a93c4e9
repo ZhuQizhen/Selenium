@@ -1,0 +1,9 @@
+package Selenium25;
+
+
+public class TestCase3_2 extends TestCase3 {
+	public static void main(String args[])
+	{
+		m1();
+	}
+}

@@ -1,0 +1,7 @@
+package Selenium25;
+
+import org.openqa.selenium.By;
+
+public class TestCase3_2 {
+
+}

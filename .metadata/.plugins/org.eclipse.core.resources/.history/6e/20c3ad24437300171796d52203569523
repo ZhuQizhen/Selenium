@@ -1,0 +1,26 @@
+package Selenium29;
+
+import java.io.File;
+
+import org.testng.annotations.DataProvider;
+
+import jxl.Workbook;
+
+public abstract class dataDriven2 {
+
+	
+	//addition functionality
+	
+	
+	@DataProvider
+	public int[][] readExcel()
+	{
+		File f = new File("src/input2.xls");
+		Workbook w=null;
+		
+		Workbook.getWorkbook(f);
+		return null;
+	}
+	
+	
+}

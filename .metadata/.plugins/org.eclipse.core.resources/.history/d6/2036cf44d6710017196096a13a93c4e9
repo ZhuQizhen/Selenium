@@ -1,0 +1,17 @@
+package Selenium25;
+
+public class TestCase3_1 extends TestCase3{
+
+	
+	public static void main(String args[])
+	{
+		m1();
+	}
+	
+	public static void m1()
+	{
+		//test case: redirect to user interface from admin interface
+		
+		TestCase3_1
+	}
+}

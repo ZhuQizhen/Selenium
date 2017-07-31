@@ -1,0 +1,7 @@
+package Selenium17;
+
+public class ElementLocators {
+	public static void main(String[] args){
+		
+	}
+}

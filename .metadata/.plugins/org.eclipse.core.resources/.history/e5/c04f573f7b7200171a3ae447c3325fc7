@@ -1,0 +1,21 @@
+<suite name="Suite">
+  <test name="Test">
+  	<groups>
+  		<run>
+  			<include name="sanity"/>
+  		</run>>
+  	</groups>
+  	
+  	<groups>
+  		<run>
+  			<include name="regression"/>
+  		</run>>
+  	</groups>
+  	
+    <classes>
+    	<class name="Selenium28.NewTest3"/>
+    	
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+<!-- for Selenium28 -->

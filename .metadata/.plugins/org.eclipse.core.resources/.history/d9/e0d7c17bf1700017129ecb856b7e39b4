@@ -1,0 +1,34 @@
+package Selenium17;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.concurrent.TimeUnit;
+import java.util.regex.*;
+
+
+
+public class ElementLocators {
+	public static void main(String[] args){
+		m2();
+	}
+	
+	public static void m1(){
+		WebDriver driver= new FirefoxDriver();
+		driver.get("https://www.google.co.jp/");
+		driver.findElement(By.id("gs_htif0")).sendKeys("Cn");		
+	}
+	
+	public static void m2(){
+		WebDriver driver= new FirefoxDriver();
+		driver.get("https://www.google.co.jp/");
+		WebElement searchText = driver.findElement(By.id("gs_htif0"));
+		searchText.sendKeys("CNM");
+		searchText.clear();
+	}
+}

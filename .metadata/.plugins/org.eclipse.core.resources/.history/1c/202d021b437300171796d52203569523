@@ -1,0 +1,19 @@
+package Selenium29;
+
+import org.testng.annotations.DataProvider;
+
+public abstract class dataDriven2 {
+
+	
+	//addition functionality
+	
+	
+	@DataProvider
+	public int[][] readExcel()
+	{
+		File f = new File("src/input2.xls");
+		return null;
+	}
+	
+	
+}

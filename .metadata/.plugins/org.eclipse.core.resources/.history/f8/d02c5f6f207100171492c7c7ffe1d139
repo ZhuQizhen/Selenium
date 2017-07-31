@@ -1,0 +1,159 @@
+package Selenium20;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.concurrent.TimeUnit;
+import java.util.regex.*;
+
+public class HandleElement2 {
+	public static void main(String args[]){
+		m7();
+	}
+	
+	public static void m1(){
+		WebDriver driver = new FirefoxDriver();
+		driver.get("https://www.gmail.com");
+		WebElement Email= driver.findElement(By.id("identifierId"));
+		Email.sendKeys("123");
+		System.out.println(Email.getAttribute("jsname"));
+		System.out.println(Email.getText());             //""
+		System.out.println(Email.getAttribute("value")); //"123"
+		driver.close();
+	}
+	
+	//image
+	public static void m2()
+	{
+		WebDriver driver = new FirefoxDriver();
+		driver.get("https://www.google.co.jp");
+		WebElement logo = driver.findElement(By.id("hplogo"));
+		System.out.println(logo.getAttribute("title"));
+		System.out.println(logo.isDisplayed());
+		System.out.println(logo.isEnabled());
+		System.out.println(logo.getText());//"Japan"
+		
+		//image button
+		driver.navigate().to("http://newtours.demoaut.com/");
+		WebElement login = driver.findElement(By.name("login"));
+		login.click();
+		
+		//image link
+		driver.navigate().to("http://www.seleniumhq.org");
+		WebElement SE= driver.findElement(By.xpath("//*[@id='choice']/tbody/tr/td[2]/center/a/img"));
+		SE.click();
+		driver.close();
+	}
+
+	//link
+	public static void m3()
+	{
+		WebDriver driver = new FirefoxDriver();
+		driver.get("https://www.google.co.jp");
+		//WebElement link= driver.findElement(By.className("gb_P"));
+		WebElement link= driver.findElement(By.linkText("Gmail"));
+		
+		System.out.println(link.isDisplayed());
+
+		System.out.println(link.isEnabled());
+
+		link.click();
+		
+		driver.close();
+	}
+
+	
+	//radio
+	public static void m4()
+	{
+		WebDriver driver = new FirefoxDriver();
+		driver.get("http://www.gcrit.com/build3/create_account.php");
+		WebElement radio1=driver.findElement(By.xpath("//*[@id='bodyContent']/form/div/div[2]/table/tbody/tr[1]/td[2]/input[1]"));
+		WebElement radio2=driver.findElement(By.xpath("//*[@id='bodyContent']/form/div/div[2]/table/tbody/tr[1]/td[2]/input[2]"));
+		
+		radio2.click();
+		
+		System.out.println(radio1.isDisplayed());
+
+		System.out.println(radio1.isEnabled());
+
+		System.out.println(radio1.isSelected());
+
+		System.out.println(radio2.isDisplayed());
+
+		System.out.println(radio2.isEnabled());
+
+		System.out.println(radio2.isSelected());
+
+		
+		
+		driver.close();
+	}
+
+	//handle drop down box
+	public static void m5()
+	{
+		WebDriver driver= new FirefoxDriver();
+		driver.get("http://www.gcrit.com/build3/create_account.php");
+		
+		Select country = new Select( driver.findElement(By.name("country")) );
+		
+		country.selectByIndex(1);//start from 1
+		country.selectByVisibleText("China");
+		
+		System.out.println(country.isMultiple());
+		System.out.println(country.getOptions().size());
+		System.out.println(country.getFirstSelectedOption().getText());
+		
+		country.selectByIndex(0);
+		
+		System.out.println(country.getAllSelectedOptions().size());
+		
+		driver.close();
+	}
+
+	//check box
+	public static void m6()
+	{
+		WebDriver driver= new FirefoxDriver();
+		driver.get("file:///C:/PHP/www/checkBox.html");
+		WebElement check1 = driver.findElement(By.xpath("/html/body/form/label[1]/input"));
+		WebElement check2 = driver.findElement(By.xpath("/html/body/form/label[2]/input"));
+		WebElement check3 = driver.findElement(By.xpath("/html/body/form/label[3]/input"));
+		WebElement check4 = driver.findElement(By.xpath("/html/body/form/label[4]/input"));
+		
+		System.out.println(check1.isDisplayed());
+		System.out.println(check1.isEnabled());
+		System.out.println(check1.isSelected());
+		check1.click(); // select
+		System.out.println(check1.isSelected());
+		check1.click();//unselect
+		System.out.println(check1.isSelected());
+		
+		driver.close();
+	}
+
+	//table
+	public static void m7()
+	{
+		WebDriver driver= new FirefoxDriver();
+		driver.get("file:///C:/PHP/www/table.html");
+		WebElement t11 =driver.findElement(By.xpath("/html/body/table/tbody/tr[1]/td[1]"));
+		WebElement t12 =driver.findElement(By.xpath("/html/body/table/tbody/tr[1]/td[2]"));
+		WebElement t21 =driver.findElement(By.xpath("/html/body/table/tbody/tr[2]/td[1]"));
+		WebElement t22 =driver.findElement(By.xpath("/html/body/table/tbody/tr[2]/td[2]"));
+	
+		System.out.println(t22.getText());
+		
+		WebElement table = driver.findElement(By.tagName("table"));
+		driver.close();
+	}
+}

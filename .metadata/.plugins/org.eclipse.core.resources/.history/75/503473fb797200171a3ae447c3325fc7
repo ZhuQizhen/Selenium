@@ -1,0 +1,23 @@
+package Selenium28;
+
+import org.testng.annotations.Test;
+
+public class NewTest3 {
+	@Test
+	public void login() 
+	{
+		System.out.println("Login Successfully");
+	}  
+	
+	@Test
+	public void fundTransfer() 
+	{
+		System.out.println("Fund Transfer Successfully");
+	}
+
+	@Test
+	public void search() 
+	{
+		System.out.println("Fund Transfer Successfully");
+	}
+}

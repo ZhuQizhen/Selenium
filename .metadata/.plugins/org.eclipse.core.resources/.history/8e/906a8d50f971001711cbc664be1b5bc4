@@ -1,0 +1,58 @@
+package Selenium27;
+
+import org.junit.Assert;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+//import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.Scanner;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+import java.util.regex.*;
+
+import org.testng.annotations.Test;
+
+public class testNG_Sample {
+	
+	@Test (enabled = false)
+	public void verifyTitle(){
+		WebDriver driver = new FirefoxDriver();
+		driver.get("https://www.gmail.com/");
+		String pageTitle = driver.getTitle();
+		Assert.assertEquals(pageTitle, "Gmail");
+		driver.close();
+	}	
+	//main method is not used for testNG program
+	//testNG programs contains only methods that contain @Test Annotations
+	//if no @Test, then the methods are not going to be executed
+	
+	//all the case are executed in alphabet order
+	//we can use priority attribute to control the execution order.
+	
+	@Test (priority = 1) // default 0
+	public void b()
+	{
+		
+	}
+	
+	@Test (priority = 2, enabled= true) //default true
+	public void a()
+	{
+		
+	}
+	
+	@Test(priority = 2, dependsOnMethods={"a"}) // if a is not executed before, there will be error 
+	public void c()
+	{
+		
+	}
+}

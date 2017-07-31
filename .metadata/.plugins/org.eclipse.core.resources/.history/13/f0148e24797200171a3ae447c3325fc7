@@ -1,0 +1,8 @@
+\<suite name="Suite" parallel="false">
+  <test name="Test">
+    <classes>
+      <class name="Selenium28.NewTest3"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
+<!-- for Selenium28 -->>
